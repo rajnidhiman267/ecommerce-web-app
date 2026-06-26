@@ -1,8 +1,6 @@
 import 'package:ecommerce_admin_panel/common/widgets/layouts/templates/site_layout.dart';
-import 'package:ecommerce_admin_panel/common/widgets/responsive/responsive_design.dart';
 import 'package:ecommerce_admin_panel/routes/app_routes.dart';
 import 'package:ecommerce_admin_panel/routes/routes.dart';
-import 'package:ecommerce_admin_panel/routes/routes_observers.dart';
 import 'package:ecommerce_admin_panel/utils/constants/text_strings.dart';
 import 'package:ecommerce_admin_panel/utils/theme/app_color.dart';
 import 'package:ecommerce_admin_panel/utils/theme/theme.dart';
