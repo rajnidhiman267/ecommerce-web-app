@@ -1,3 +1,4 @@
+import 'package:ecommerce_admin_panel/data/repositories/authentication/authentication_repositoary.dart';
 import 'package:ecommerce_admin_panel/routes/routes.dart';
 import 'package:ecommerce_admin_panel/utils/device/device_utility.dart';
 import 'package:get/get.dart';
@@ -16,11 +17,12 @@ class SidebarController extends GetxController {
   bool isActive(String route) => activeItem.value == route;
   bool isHovering(String route) => hoverItem.value == route;
 
-  void menOnTap(String route) {
+  void menOnTap(String route) async {
     if (!isActive(route)) {
       changeActiveItem(route);
       if (TDeviceUtils.isMobileScreen(Get.context!)) Get.back();
       Get.toNamed(route);
     }
+    await AuthenticationRepository.instance.logout();
   }
 }

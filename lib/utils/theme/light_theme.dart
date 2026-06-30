@@ -46,11 +46,11 @@ class LightTheme {
       fillColor: AppColors.bgTextFieldColor,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.borderColor),
+        borderSide: const BorderSide(color: AppColors.primaryButtonColor),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.borderColor),
+        borderSide: const BorderSide(color: AppColors.primaryButtonColor),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),

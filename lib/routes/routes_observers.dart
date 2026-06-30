@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class RouteObservers extends GetObserver {
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    final sideController = Get.put(SidebarController());
+    final sideController = Get.find<SidebarController>();
     if (previousRoute != null) {
       for (var routeName in TRoute.sideMenuItem) {
         if (previousRoute.settings.name == routeName) {

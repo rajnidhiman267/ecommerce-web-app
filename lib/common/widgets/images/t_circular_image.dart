@@ -4,9 +4,8 @@ import 'dart:typed_data';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_admin_panel/common/widgets/images/t_rounded_image.dart';
 import 'package:ecommerce_admin_panel/utils/constants/sizes.dart';
+import 'package:ecommerce_admin_panel/utils/helpers/helper.dart';
 import 'package:flutter/material.dart';
-
- 
 
 class TCircularImage extends StatelessWidget {
   const TCircularImage({
@@ -31,18 +30,20 @@ class TCircularImage extends StatelessWidget {
   final Color? backgroundColor;
   final Uint8List? memoryImage;
   final double width, height, padding;
- 
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
-       padding: EdgeInsets.all(padding),
+      padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-      
-        color: backgroundColor??(Theme.of(context).brightness==Brightness.dark?Colors.black:Colors.white),
-        borderRadius: BorderRadius.circular(width>=height?width:height),
+        color:
+            backgroundColor ??
+            (THelperFunctions.isDarkMode(context)
+                ? Colors.black
+                : Colors.white),
+        borderRadius: BorderRadius.circular(width >= height ? width : height),
       ),
       child: _buildImageWidget(),
     );
@@ -65,7 +66,7 @@ class TCircularImage extends StatelessWidget {
         break;
     }
     return ClipRRect(
-        borderRadius: BorderRadius.circular(width>=height?width:height),
+      borderRadius: BorderRadius.circular(width >= height ? width : height),
 
       child: imageWidget,
     );

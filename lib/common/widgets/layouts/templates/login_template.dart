@@ -1,5 +1,6 @@
 import 'package:ecommerce_admin_panel/common/style/spacing_style.dart';
 import 'package:ecommerce_admin_panel/utils/constants/sizes.dart';
+import 'package:ecommerce_admin_panel/utils/helpers/helper.dart';
 import 'package:ecommerce_admin_panel/utils/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -16,10 +17,12 @@ class LoginTemplate extends StatelessWidget {
           child: Container(
             padding: SpacingStyle.paddingWithAppBarHeight,
             decoration: BoxDecoration(
-              color:  AppColors.whiteColor,
+              color: THelperFunctions.isDarkMode(context)
+                  ? AppColors.darkCard
+                  : AppColors.whiteColor,
               borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
             ),
-            child:child,
+            child: child,
           ),
         ),
       ),

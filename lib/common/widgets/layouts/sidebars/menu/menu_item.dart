@@ -16,7 +16,8 @@ class TMenuItem extends StatelessWidget {
   final String itemName;
   @override
   Widget build(BuildContext context) {
-    final menuController = Get.put(SidebarController());
+ 
+      final menuController = Get.find<SidebarController>();
     return InkWell(
       onTap: () {
         menuController.menOnTap(route);

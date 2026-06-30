@@ -12,7 +12,8 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    final controller = Get.find<LoginController>();
+
     return Form(
       key: controller.loginFormKey,
       child: Padding(
@@ -28,15 +29,23 @@ class LoginForm extends StatelessWidget {
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
-            TextFormField(
-              controller: controller.password,
-              validator: ValidationHelper.validatePassword,
-              decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                labelText: TTexts.password,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Iconsax.eye_slash),
+            Obx(
+              () => TextFormField(
+                controller: controller.password,
+                validator: ValidationHelper.validatePassword,
+                obscureText: controller.hidePassword.value,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Iconsax.password_check),
+                  labelText: TTexts.password,
+                  suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(
+                      controller.hidePassword.value
+                          ? Iconsax.eye_slash
+                          : Iconsax.eye,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -49,7 +58,14 @@ class LoginForm extends StatelessWidget {
                 Row(
                   mainAxisSize: .min,
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
+                    Obx(
+                      () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (value) {
+                          controller.rememberMe.value = value!;
+                        },
+                      ),
+                    ),
                     Text(TTexts.rememberMe),
                   ],
                 ),
@@ -63,7 +79,9 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.emailAndPassword();
+                },
                 child: Text(TTexts.signIn),
               ),
             ),

@@ -10,7 +10,7 @@ import 'package:url_strategy/url_strategy.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  ///Initialize GETX local storage
+  /// Initialize GETX local storage
   await GetStorage.init();
 
   /// REMOVE # SIGN FROM URL

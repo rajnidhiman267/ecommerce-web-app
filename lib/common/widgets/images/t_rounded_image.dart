@@ -1,6 +1,6 @@
+import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -51,88 +51,124 @@ class TRoundedImage extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
-      child: _buildImageWidget(),
+      child: ClipRRect(
+        borderRadius: applyImageRadius
+            ? BorderRadius.circular(borderRadius)
+            : BorderRadius.zero,
+        child: _buildImageWidget(),
+      ),
     );
   }
 
-  Widget? _buildImageWidget() {
-    Widget imageWidget;
+  Widget _buildImageWidget() {
     switch (imageType) {
       case ImageType.network:
-        imageWidget = _buildNetworkImage();
-        break;
+        return _buildNetworkImage();
       case ImageType.memory:
-        imageWidget = _buildMemoryImage();
-        break;
+        return _buildMemoryImage();
       case ImageType.file:
-        imageWidget = _buildFileImage();
-        break;
+        return _buildFileImage();
       case ImageType.asset:
-        imageWidget = _buildAssetImage();
-        break;
+        return _buildAssetImage();
     }
-    return ClipRRect(
-      borderRadius: applyImageRadius
-          ? BorderRadius.circular(borderRadius)
-          : BorderRadius.zero,
-      child: imageWidget,
-    );
   }
 
+  // ✅ Use Image.network instead of CachedNetworkImage for web
   Widget _buildNetworkImage() {
-    if (image != null) {
-      return CachedNetworkImage(
-        fit: fit,
-        color: overlayColor,
+    if (image == null) return _errorWidget();
+    return CachedNetworkImage(
+      fit: fit,
+      color: overlayColor,
 
-        imageUrl: image!,
-        errorWidget: (context, url, error) {
-          return const Icon(Icons.error);
-        },
-        progressIndicatorBuilder: (context, url, progress) =>
-            TShimmerEffect(width: width, height: height),
-      );
-    } else {
-      return Container();
-    }
+      imageUrl: image!,
+      errorWidget: (context, url, error) {
+        return _errorWidget();
+      },
+
+      progressIndicatorBuilder: (context, url, progress) =>
+          TShimmerEffect(width: width, height: height),
+    );
   }
 
   Widget _buildMemoryImage() {
-    if (memoryImage != null) {
-      return Image(
-        fit: fit,
-        image: MemoryImage(memoryImage!),
-        color: overlayColor,
-      );
-    } else {
-      return Container();
-    }
+    if (memoryImage == null) return _errorWidget();
+    return Image(
+      fit: fit,
+      image: MemoryImage(memoryImage!),
+      color: overlayColor,
+      errorBuilder: (context, error, stackTrace) => _errorWidget(),
+    );
   }
 
   Widget _buildFileImage() {
-    if (file != null) {
-      return Image(fit: fit, image: FileImage(file!), color: overlayColor);
-    } else {
-      return Container();
-    }
+    if (file == null) return _errorWidget();
+    return Image(
+      fit: fit,
+      image: FileImage(file!),
+      color: overlayColor,
+      errorBuilder: (context, error, stackTrace) => _errorWidget(),
+    );
   }
 
   Widget _buildAssetImage() {
-    if (image != null) {
-      return Image(fit: fit, image: AssetImage(image!), color: overlayColor);
-    } else {
-      return Container();
-    }
+    if (image == null) return _errorWidget();
+    return Image(
+      fit: fit,
+      image: AssetImage(image!),
+      color: overlayColor,
+      errorBuilder: (context, error, stackTrace) => _errorWidget(),
+    );
+  }
+
+  // Common error widget
+  Widget _errorWidget() {
+    return Container(
+      color: Colors.grey[200],
+      child: const Icon(Icons.broken_image, color: Colors.grey),
+    );
   }
 }
 
-class TShimmerEffect extends StatelessWidget {
+// ✅ Proper shimmer effect
+class TShimmerEffect extends StatefulWidget {
   final double width;
   final double height;
   const TShimmerEffect({super.key, required this.width, required this.height});
 
   @override
+  State<TShimmerEffect> createState() => _TShimmerEffectState();
+}
+
+class _TShimmerEffectState extends State<TShimmerEffect>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..repeat(reverse: true);
+    _animation = Tween<double>(begin: 0.3, end: 1.0).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return FadeTransition(
+      opacity: _animation,
+      child: Container(
+        width: widget.width,
+        height: widget.height,
+        color: Colors.grey[300],
+      ),
+    );
   }
 }

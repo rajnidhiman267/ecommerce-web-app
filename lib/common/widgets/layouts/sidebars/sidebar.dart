@@ -3,6 +3,7 @@ import 'package:ecommerce_admin_panel/common/widgets/layouts/sidebars/menu/menu_
 import 'package:ecommerce_admin_panel/routes/routes.dart';
 import 'package:ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:ecommerce_admin_panel/utils/constants/sizes.dart';
+import 'package:ecommerce_admin_panel/utils/helpers/helper.dart';
 import 'package:ecommerce_admin_panel/utils/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -16,7 +17,9 @@ class TSideBar extends StatelessWidget {
       shape: BeveledRectangleBorder(),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.whiteColor,
+          color: THelperFunctions.isDarkMode(context)
+              ? AppColors.darkSurface
+              : AppColors.whiteColor,
           border: Border(
             right: BorderSide(color: AppColors.borderColor, width: 1),
           ),
