@@ -1,5 +1,7 @@
 import 'package:ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class THelperFunctions {
   static DateTime getStartOfWeek(DateTime date) {
@@ -54,5 +56,28 @@ class THelperFunctions {
 
   static bool isDarkMode(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark;
+  }
+
+  static Size screenSize() {
+    return MediaQuery.of(Get.context!).size;
+  }
+
+  static double screenWidth() {
+    return MediaQuery.of(Get.context!).size.width;
+  }
+
+  static double screenHeight() {
+    return MediaQuery.of(Get.context!).size.height;
+  }
+
+  static List<T> removeDuplicate<T>(List<T> list) {
+    return list.toSet().toList();
+  }
+
+  static String getFormattedDate(
+    DateTime date, {
+    String format = 'dd MM yyyy',
+  }) {
+    return DateFormat(format).format(date);
   }
 }

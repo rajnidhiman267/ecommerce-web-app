@@ -13,9 +13,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: TTexts.appName,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: TAppTheme.lightTheme,
-      darkTheme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
       getPages: TAppRoute.pages,
       initialRoute: TRoute.dashBoard,
       initialBinding: GeneralBinding(),

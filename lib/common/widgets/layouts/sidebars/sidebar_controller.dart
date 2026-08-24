@@ -4,7 +4,7 @@ import 'package:ecommerce_admin_panel/utils/device/device_utility.dart';
 import 'package:get/get.dart';
 
 class SidebarController extends GetxController {
-  final activeItem = TRoute.login.obs;
+  final activeItem = TRoute.dashBoard.obs;
   final hoverItem = "".obs;
 
   void changeActiveItem(String route) => activeItem.value = route;
@@ -23,6 +23,10 @@ class SidebarController extends GetxController {
       if (TDeviceUtils.isMobileScreen(Get.context!)) Get.back();
       Get.toNamed(route);
     }
+  }
+
+  // Separate logout method for your logout button
+  void logout() async {
     await AuthenticationRepository.instance.logout();
   }
 }

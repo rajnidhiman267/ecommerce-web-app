@@ -1,4 +1,5 @@
 import 'package:ecommerce_admin_panel/common/widgets/containers/t_rounded_container.dart';
+import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/table/data_table.dart';
 import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/widget/dashboard_card.dart';
 import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/widget/order_status_graph.dart';
 import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/widget/weekly_sales.dart';
@@ -56,8 +57,20 @@ class DashboardMobileScreen extends StatelessWidget {
               //BAR GRAPH
               WeeklySalesGraph(),
 
-              ///ORDER
-              TRoundedContainer(),
+              //ORDER
+              TRoundedContainer(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: TSizes.spaceBtwSections,
+                  children: [
+                    Text(
+                      'Recent Orders',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    DashBoardOrderTable(),
+                  ],
+                ),
+              ),
 
               ///Pie Chart
               OrderStatusPieGraph(),

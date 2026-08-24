@@ -28,8 +28,7 @@ class TSizes {
   //Image size
   static const imageThumbSize = 80.0;
 
-
-static const double appBarHeight=56.0;
+  static const double appBarHeight = 56.0;
   //default spacing between section
   static const double defaultSpace = 24.0;
   static const double spaceBtwItems = 16.0;
@@ -55,6 +54,7 @@ static const double appBarHeight=56.0;
   //Card sizes
   static const double cardRadiusLg = 16.0;
   static const double cardRadiusMd = 18.0;
+  static const double cardRadiusSm = 8.0;
 
   static const double imageCarouselHeight = 200.0;
   static const double loadingIndicatorSize = 36.0;

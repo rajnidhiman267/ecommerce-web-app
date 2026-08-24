@@ -26,11 +26,5 @@ class TRoute {
   static const customerDetails = "/customerDetails";
   static const orders = "/orders";
 
-  static List sideMenuItem = [
-    login,
-    forgetPassword,
-    resetPassword,
-    dashBoard,
-    media,
-  ];
+  static List sideMenuItem = [dashBoard, media];
 }

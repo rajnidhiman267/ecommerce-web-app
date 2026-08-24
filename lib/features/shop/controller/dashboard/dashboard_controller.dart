@@ -1,3 +1,4 @@
+import 'package:ecommerce_admin_panel/features/shop/model/order_model.dart';
 import 'package:ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:ecommerce_admin_panel/utils/helpers/helper.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 1),
       ),
-      delieveryDate: DateTime.now().add(const Duration(days: 2)),
+      deliveryDate: DateTime.now().add(const Duration(days: 2)),
     ),
 
     OrderModel(
@@ -29,7 +30,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 1),
       ),
-      delieveryDate: DateTime.now().add(const Duration(days: 3)),
+      deliveryDate: DateTime.now().add(const Duration(days: 3)),
     ),
 
     // Tuesday
@@ -40,7 +41,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 2),
       ),
-      delieveryDate: DateTime.now().add(const Duration(days: 1)),
+      deliveryDate: DateTime.now().add(const Duration(days: 1)),
     ),
 
     // Wednesday
@@ -51,7 +52,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 3),
       ),
-      delieveryDate: DateTime.now(),
+      deliveryDate: DateTime.now(),
     ),
 
     OrderModel(
@@ -61,7 +62,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 3),
       ),
-      delieveryDate: DateTime.now(),
+      deliveryDate: DateTime.now(),
     ),
 
     // Thursday
@@ -72,7 +73,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 4),
       ),
-      delieveryDate: DateTime.now().add(const Duration(days: 2)),
+      deliveryDate: DateTime.now().add(const Duration(days: 2)),
     ),
 
     // Friday
@@ -83,7 +84,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 5),
       ),
-      delieveryDate: DateTime.now().add(const Duration(days: 1)),
+      deliveryDate: DateTime.now().add(const Duration(days: 1)),
     ),
 
     // Saturday
@@ -94,7 +95,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 6),
       ),
-      delieveryDate: DateTime.now(),
+      deliveryDate: DateTime.now(),
     ),
 
     // Sunday
@@ -105,7 +106,7 @@ class DashboardController extends GetxController {
       orderDate: DateTime.now().subtract(
         Duration(days: DateTime.now().weekday - 7),
       ),
-      delieveryDate: DateTime.now().add(const Duration(days: 4)),
+      deliveryDate: DateTime.now().add(const Duration(days: 4)),
     ),
   ];
 
@@ -157,19 +158,4 @@ class DashboardController extends GetxController {
       totalAmounts[status] = (totalAmounts[status] ?? 0) + order.totalAmount;
     }
   }
-}
-
-class OrderModel {
-  String id;
-  OrderStatus status;
-  double totalAmount;
-  DateTime orderDate;
-  DateTime delieveryDate;
-  OrderModel({
-    required this.id,
-    required this.status,
-    required this.totalAmount,
-    required this.orderDate,
-    required this.delieveryDate,
-  });
 }

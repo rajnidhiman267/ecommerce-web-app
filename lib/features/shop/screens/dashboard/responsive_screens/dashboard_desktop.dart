@@ -1,5 +1,6 @@
 import 'package:ecommerce_admin_panel/common/widgets/containers/t_rounded_container.dart';
 import 'package:ecommerce_admin_panel/features/shop/controller/dashboard/dashboard_controller.dart';
+import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/table/data_table.dart';
 import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/widget/dashboard_card.dart';
 import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/widget/header_widget.dart';
 import 'package:ecommerce_admin_panel/features/shop/screens/dashboard/widget/order_status_graph.dart';
@@ -84,7 +85,22 @@ class DashboardDesktopScreen extends StatelessWidget {
                         WeeklySalesGraph(),
 
                         //ORDER
-                        TRoundedContainer(),
+                        TRoundedContainer(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+
+                            spacing: TSizes.spaceBtwSections,
+                            children: [
+                              Text(
+                                'Recent Orders',
+                                style: Theme.of(
+                                  context,
+                                ).textTheme.headlineSmall,
+                              ),
+                              DashBoardOrderTable(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

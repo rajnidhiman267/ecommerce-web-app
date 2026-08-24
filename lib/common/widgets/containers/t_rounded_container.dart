@@ -13,7 +13,7 @@ class TRoundedContainer extends StatelessWidget {
     this.showShadow = true,
     this.borderColor = TColors.darkSurface,
     this.margin,
-    this.padding = const EdgeInsets.all(TSizes.md),
+    this.padding = const EdgeInsetsGeometry.all(TSizes.md),
     this.backgroundColor = TColors.whiteColor,
     this.onTap,
   });
@@ -24,8 +24,8 @@ class TRoundedContainer extends StatelessWidget {
   final bool showBorder;
   final bool showShadow;
   final Color borderColor;
-  final EdgeInsets? margin;
-  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
   final Color backgroundColor;
   final void Function()? onTap;
   @override

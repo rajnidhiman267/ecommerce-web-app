@@ -43,20 +43,20 @@ class TSideBar extends StatelessWidget {
                     ),
 
                     TMenuItem(
-                      route: TRoute.login,
+                      route: TRoute.dashBoard,
                       icon: Iconsax.status,
                       itemName: 'DashBoard',
                     ),
                     TMenuItem(
-                      route: TRoute.banners,
+                      route: TRoute.media,
                       icon: Iconsax.image,
                       itemName: 'Media',
                     ),
-                    TMenuItem(
-                      route: TRoute.categories,
-                      icon: Iconsax.picture_frame,
-                      itemName: 'Banner',
-                    ),
+                    // TMenuItem(
+                    //   route: TRoute.categories,
+                    //   icon: Iconsax.picture_frame,
+                    //   itemName: 'Banner',
+                    // ),
                   ],
                 ),
               ),

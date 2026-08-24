@@ -70,6 +70,7 @@ class OrderStatusPieGraph extends StatelessWidget {
                   cells: [
                     DataCell(
                       Row(
+                        spacing: TSizes.sm,
                         children: [
                           TCircularContainer(
                             width: 20,
