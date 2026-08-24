@@ -5,21 +5,21 @@ class DarkTheme {
   static ThemeData theme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: AppColors.primaryDark,
+    scaffoldBackgroundColor: TColors.primaryDark,
     colorScheme: const ColorScheme.dark(
-      primary: AppColors.gradientStart,
-      secondary: AppColors.gradientEnd,
-      surface: AppColors.darkCard,
-      error: AppColors.dangerColor,
+      primary: TColors.gradientStart,
+      secondary: TColors.gradientEnd,
+      surface: TColors.darkCard,
+      error: TColors.dangerColor,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor:
-            AppColors.gradientStart, // Matches dark mode accent color
+            TColors.gradientStart, // Matches dark mode accent color
         foregroundColor: Colors.white, // Text & Icon color
-        disabledBackgroundColor: AppColors.darkSurface,
-        disabledForegroundColor: AppColors.hintTextColor,
+        disabledBackgroundColor: TColors.darkSurface,
+        disabledForegroundColor: TColors.hintTextColor,
         padding: const EdgeInsets.symmetric(
           vertical: 16,
           horizontal: 24,
@@ -33,12 +33,12 @@ class DarkTheme {
       ),
     ),
     cardTheme: CardThemeData(
-      color: AppColors.darkCard,
+      color: TColors.darkCard,
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.darkSurface,
+      backgroundColor: TColors.darkSurface,
       elevation: 0,
       centerTitle: false,
       iconTheme: const IconThemeData(color: Colors.white),
@@ -50,23 +50,20 @@ class DarkTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.darkSurface,
+      fillColor: TColors.darkSurface,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.darkBorder),
+        borderSide: const BorderSide(color: TColors.darkBorder),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.darkBorder),
+        borderSide: const BorderSide(color: TColors.darkBorder),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(
-          color: AppColors.gradientStart,
-          width: 1.5,
-        ),
+        borderSide: const BorderSide(color: TColors.gradientStart, width: 1.5),
       ),
-      hintStyle: TextStyle(fontSize: 14, color: AppColors.hintTextColor),
+      hintStyle: TextStyle(fontSize: 14, color: TColors.hintTextColor),
     ),
     textTheme: TextTheme(
       headlineLarge: TextStyle(
@@ -112,7 +109,7 @@ class DarkTheme {
       bodySmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: AppColors.hintTextColor,
+        color: TColors.hintTextColor,
       ),
       labelLarge: TextStyle(
         fontSize: 14,
@@ -127,7 +124,7 @@ class DarkTheme {
       labelSmall: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.w400,
-        color: AppColors.hintTextColor,
+        color: TColors.hintTextColor,
       ),
     ),
   );

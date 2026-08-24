@@ -48,7 +48,7 @@ class AnimationLoaderWidget extends StatelessWidget {
                     child: Text(
                       actionText!,
                       style: Theme.of(context).textTheme.bodyMedium!.apply(
-                        color: AppColors.bgSocialButtonColor,
+                        color: TColors.bgSocialButtonColor,
                       ),
                     ),
                   ),

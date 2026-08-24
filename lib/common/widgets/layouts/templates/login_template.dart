@@ -18,8 +18,8 @@ class LoginTemplate extends StatelessWidget {
             padding: SpacingStyle.paddingWithAppBarHeight,
             decoration: BoxDecoration(
               color: THelperFunctions.isDarkMode(context)
-                  ? AppColors.darkCard
-                  : AppColors.whiteColor,
+                  ? TColors.darkCard
+                  : TColors.whiteColor,
               borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
             ),
             child: child,

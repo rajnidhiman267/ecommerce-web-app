@@ -22,8 +22,8 @@ class TLoaders {
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
             color: THelperFunctions.isDarkMode(Get.context!)
-                ? AppColors.darkCard.withValues(alpha: 0.9)
-                : AppColors.darkBorder.withValues(alpha: 0.9),
+                ? TColors.darkCard.withValues(alpha: 0.9)
+                : TColors.darkBorder.withValues(alpha: 0.9),
           ),
           child: Center(
             child: Text(
@@ -36,7 +36,11 @@ class TLoaders {
     );
   }
 
-  static void successSnackBar({required String  title, message = "", duration = 3}) {
+  static void successSnackBar({
+    required String title,
+    message = "",
+    duration = 3,
+  }) {
     Get.snackbar(
       title,
       message,
@@ -44,15 +48,19 @@ class TLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: Colors.white,
-      backgroundColor: AppColors.primaryDark,
+      backgroundColor: TColors.primaryDark,
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(10),
-      icon: const Icon(Iconsax.check, color: AppColors.whiteColor),
+      icon: const Icon(Iconsax.check, color: TColors.whiteColor),
     );
   }
 
-   static void warningSnackBar({required String title, message = "", duration = 3}) {
+  static void warningSnackBar({
+    required String title,
+    message = "",
+    duration = 3,
+  }) {
     Get.snackbar(
       title,
       message,
@@ -60,14 +68,19 @@ class TLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: Colors.white,
-      backgroundColor: AppColors.foodColor,
+      backgroundColor: TColors.foodColor,
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(20),
-      icon: const Icon(Iconsax.warning_2, color: AppColors.whiteColor),
+      icon: const Icon(Iconsax.warning_2, color: TColors.whiteColor),
     );
   }
-   static void errorSnackBar({required String title, message = "", duration = 3}) {
+
+  static void errorSnackBar({
+    required String title,
+    message = "",
+    duration = 3,
+  }) {
     Get.snackbar(
       title,
       message,
@@ -79,7 +92,7 @@ class TLoaders {
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(20),
-      icon: const Icon(Iconsax.warning_2, color: AppColors.whiteColor),
+      icon: const Icon(Iconsax.warning_2, color: TColors.whiteColor),
     );
   }
 }

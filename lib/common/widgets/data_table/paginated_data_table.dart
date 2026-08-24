@@ -42,11 +42,16 @@ class TPaginatedDataTable extends StatelessWidget {
       horizontalMargin: 12,
       dataRowHeight: dataRowHeight,
       renderEmptyRowsInTheEnd: false,
-      headingTextStyle: Theme.of(context).textTheme.titleMedium?.apply(color: AppColors.whiteColor),
+      headingTextStyle: Theme.of(
+        context,
+      ).textTheme.titleMedium?.apply(color: TColors.whiteColor),
       headingRowColor: WidgetStateColor.resolveWith(
-        (s) => AppColors.primaryButtonColor,
+        (s) => TColors.primaryButtonColor,
       ),
-      empty: AnimationLoaderWidget(text: "Nothing found", animation: TImages.animationLoader),
+      empty: AnimationLoaderWidget(
+        text: "Nothing found",
+        animation: TImages.animationLoader,
+      ),
       headingRowDecoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(TSizes.borderRadiusMd),

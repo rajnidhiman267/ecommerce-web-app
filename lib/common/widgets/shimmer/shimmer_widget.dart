@@ -24,7 +24,7 @@ class ShimmerWidget extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: color ?? (dark ? AppColors.darkBorder : AppColors.whiteColor),
+          color: color ?? (dark ? TColors.darkBorder : TColors.whiteColor),
           borderRadius: BorderRadius.circular(radius),
         ),
       ),

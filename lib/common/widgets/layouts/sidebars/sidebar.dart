@@ -18,10 +18,10 @@ class TSideBar extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: THelperFunctions.isDarkMode(context)
-              ? AppColors.darkSurface
-              : AppColors.whiteColor,
+              ? TColors.darkSurface
+              : TColors.whiteColor,
           border: Border(
-            right: BorderSide(color: AppColors.borderColor, width: 1),
+            right: BorderSide(color: TColors.borderColor, width: 1),
           ),
         ),
         child: SingleChildScrollView(

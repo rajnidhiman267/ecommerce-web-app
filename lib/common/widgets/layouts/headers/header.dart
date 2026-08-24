@@ -21,10 +21,10 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
       padding: EdgeInsets.symmetric(horizontal: TSizes.md, vertical: TSizes.sm),
       decoration: BoxDecoration(
         color: THelperFunctions.isDarkMode(context)
-            ? AppColors.darkSurface
-            : AppColors.whiteColor,
+            ? TColors.darkSurface
+            : TColors.whiteColor,
         border: Border(
-          bottom: BorderSide(width: 1, color: AppColors.borderColor),
+          bottom: BorderSide(width: 1, color: TColors.borderColor),
         ),
       ),
       child: AppBar(

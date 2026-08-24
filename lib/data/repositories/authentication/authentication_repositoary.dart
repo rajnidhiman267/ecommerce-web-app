@@ -21,6 +21,7 @@ class AuthenticationRepository extends GetxService {
     _auth.setPersistence(Persistence.LOCAL);
   }
 
+  /// Redirect to the screen according to authentication
   void screenRedirect() async {
     final user = _auth.currentUser;
 

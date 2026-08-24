@@ -16,8 +16,7 @@ class TMenuItem extends StatelessWidget {
   final String itemName;
   @override
   Widget build(BuildContext context) {
- 
-      final menuController = Get.find<SidebarController>();
+    final menuController = Get.find<SidebarController>();
     return InkWell(
       onTap: () {
         menuController.menOnTap(route);
@@ -33,7 +32,7 @@ class TMenuItem extends StatelessWidget {
               color:
                   menuController.isHovering(route) ||
                       menuController.isActive(route)
-                  ? AppColors.primaryDark
+                  ? TColors.primaryDark
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(TSizes.cardRadiusMd),
             ),
@@ -48,13 +47,13 @@ class TMenuItem extends StatelessWidget {
                     bottom: TSizes.md,
                   ),
                   child: menuController.isActive(route)
-                      ? Icon(icon, size: 22, color: AppColors.whiteColor)
+                      ? Icon(icon, size: 22, color: TColors.whiteColor)
                       : Icon(
                           icon,
                           size: 22,
                           color: menuController.isHovering(route)
-                              ? AppColors.whiteColor
-                              : AppColors.darkBorder,
+                              ? TColors.whiteColor
+                              : TColors.darkBorder,
                         ),
                 ),
                 if (menuController.isHovering(route) ||
@@ -62,18 +61,18 @@ class TMenuItem extends StatelessWidget {
                   Flexible(
                     child: Text(
                       itemName,
-                      style: Theme.of(context).textTheme.bodyMedium?.apply(
-                        color: AppColors.whiteColor,
-                      ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.apply(color: TColors.whiteColor),
                     ),
                   )
                 else
                   Flexible(
                     child: Text(
                       itemName,
-                      style: Theme.of(context).textTheme.bodyMedium?.apply(
-                        color: AppColors.darkBorder,
-                      ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.apply(color: TColors.darkBorder),
                     ),
                   ),
               ],
