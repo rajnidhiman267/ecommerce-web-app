@@ -1,11 +1,11 @@
-import 'dart:developer';
-import 'dart:io';
+ import 'dart:io';
 import 'dart:typed_data';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-enum ImageType { network, memory, file, asset }
+ 
 
 class TRoundedImage extends StatelessWidget {
   const TRoundedImage({

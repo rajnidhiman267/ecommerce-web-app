@@ -22,7 +22,7 @@ class TSizes {
 
   static const double buttonHeight = 18.0;
   static const double buttonRadius = 10.0;
-  static const double buttonWidth = 130.0;
+  static const double buttonWidth = 150.0;
   static const double buttonElevation = 4.0;
 
   //Image size
